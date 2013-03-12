@@ -1,0 +1,32 @@
+2013/03/12 19:02:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "posts".' in C:\xampp\WebFramework_mine\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\WebFramework_mine\framework\web\CWebApplication.php(141): CWebApplication->runController('posts')
+#1 C:\xampp\WebFramework_mine\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\blog\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/blog/index.php/posts
+---
+2013/03/12 19:11:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user".' in C:\xampp\WebFramework_mine\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\WebFramework_mine\framework\web\CWebApplication.php(141): CWebApplication->runController('user')
+#1 C:\xampp\WebFramework_mine\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\blog\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/blog/index.php/user
+---
+2013/03/12 19:11:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "users".' in C:\xampp\WebFramework_mine\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\WebFramework_mine\framework\web\CWebApplication.php(141): CWebApplication->runController('users')
+#1 C:\xampp\WebFramework_mine\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\blog\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/blog/index.php/users
+---
+2013/03/12 19:12:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user".' in C:\xampp\WebFramework_mine\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\WebFramework_mine\framework\web\CWebApplication.php(141): CWebApplication->runController('user')
+#1 C:\xampp\WebFramework_mine\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\blog\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/blog/index.php/user
+---
