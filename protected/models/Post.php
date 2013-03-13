@@ -71,6 +71,13 @@ class Post extends CActiveRecord
         $this->_oldTags=$this->tags;
     }
 
+    protected function afterDelete()
+    {
+        parent::afterDelete();
+        Comment::model()->deleteAll('post_id='.$this->id);
+        Tag::model()->updateFrequency($this->tags, '');
+    }
+
 	/**
 	 * @return array validation rules for model attributes.
 	 */
@@ -117,7 +124,7 @@ class Post extends CActiveRecord
 			'comments' => array(self::HAS_MANY, 'Comment', 'post_id',
                 'condition'=>'comments.status='.Comment::STATUS_APPROVED,
                 'order'=>'comments.create_time DESC'),
-                'commentCount' => array(self::STAT, 'Comment', 'post_id',
+                'commentCount' => array(self::STAT, 'Comment', 'post_id', //checks number of approved comments
                 'condition'=>'status='.Comment::STATUS_APPROVED),
 
 		);

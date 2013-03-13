@@ -21,6 +21,18 @@ class Comment extends CActiveRecord
 
     const STATUS_PENDING=1;
     const STATUS_APPROVED=2;
+
+    protected function beforeSave()
+    {
+        if(parent::beforeSave())
+        {
+            if($this->isNewRecord)
+                $this->create_time=time();
+            return true;
+        }
+        else
+            return false;
+    }
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -47,14 +59,10 @@ class Comment extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('content, status, create_time, author, email, url, post_id', 'required'),
-			array('post_id', 'numerical', 'integerOnly'=>true),
-			array('content, status', 'length', 'max'=>100),
-			array('author, email', 'length', 'max'=>30),
-			array('url', 'length', 'max'=>64),
-			// The following rule is used by search().
-			// Please remove those attributes that should not be searched.
-			array('id, content, status, create_time, author, email, url, post_id', 'safe', 'on'=>'search'),
+			array('content, author, email,', 'required'),
+		    array('author, email, url', 'length', 'max'=>128),
+            array('email','email'),  //check for valid email
+            array('url','url'),      //check for valid url
 		);
 	}
 
@@ -82,7 +90,7 @@ class Comment extends CActiveRecord
 			'create_time' => 'Create Time',
 			'author' => 'Author',
 			'email' => 'Email',
-			'url' => 'Url',
+			'url' => 'Website',
 			'post_id' => 'Post',
 		);
 	}
